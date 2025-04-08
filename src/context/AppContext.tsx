@@ -137,6 +137,30 @@ const defaultContextValue: AppContextType = {
     enterReason: {
       ar: 'أدخل السبب...',
       en: 'Enter reason...'
+    },
+    features: {
+      ar: 'المميزات',
+      en: 'Features'
+    },
+    aiAnalysis: {
+      ar: 'تحليل الذكاء الاصطناعي',
+      en: 'AI Analysis'
+    },
+    faceRecognition: {
+      ar: 'التعرف على الوجه',
+      en: 'Face Recognition'
+    },
+    jerseyRecognition: {
+      ar: 'التعرف على رقم القميص',
+      en: 'Jersey Number Recognition'
+    },
+    instantAnalysis: {
+      ar: 'التحليل الفوري',
+      en: 'Instant Analysis'
+    },
+    finalReport: {
+      ar: 'التقرير النهائي',
+      en: 'Final Report'
     }
   }
 };
@@ -160,7 +184,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       timestamp: new Date(),
       player,
       cardType,
-      reason
+      reason,
+      aiAnalysis: 'تم تحليل الحالة: مخالفة مستحقة للبطاقة وفقًا لقوانين اللعبة المادة 12',
+      videoEvidence: 'video-evidence-url'
     };
     
     setMatch(prevMatch => ({

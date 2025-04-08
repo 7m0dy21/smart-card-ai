@@ -26,6 +26,8 @@ export interface CardIncident {
   cardType: CardType;
   reason?: string;
   imageCapture?: string;
+  videoEvidence?: string;
+  aiAnalysis?: string;
 }
 
 export interface Match {
@@ -40,5 +42,14 @@ export interface Match {
   score?: {
     homeScore: number;
     awayScore: number;
+  };
+  finalReport?: {
+    summary: string;
+    incidentReviews: CardIncident[];
+    refereePerformance?: {
+      accuracy: number;
+      timeEfficiency: number;
+      consistencyScore: number;
+    }
   };
 }

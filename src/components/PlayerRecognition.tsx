@@ -2,7 +2,7 @@
 import React from 'react';
 import { useAppContext } from '../context/AppContext';
 import { Card } from '@/components/ui/card';
-import { Scan, User } from 'lucide-react';
+import { Scan, User, ScanFace, Shirt } from 'lucide-react';
 import { Player } from '../types';
 
 const PlayerRecognition: React.FC = () => {
@@ -52,7 +52,8 @@ const PlayerRecognition: React.FC = () => {
   return (
     <Card className="p-4 bg-black bg-opacity-30 border-0">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-semibold">
+        <h2 className="text-xl font-semibold flex items-center">
+          <ScanFace className="mr-2" size={20} />
           {translations.playerRecognition[language]}
         </h2>
         
@@ -84,6 +85,19 @@ const PlayerRecognition: React.FC = () => {
               ? translations.playerRecognition[language]
               : translations.activate[language] + ' ' + translations.camera[language].toLowerCase()
             }
+          </div>
+        </div>
+      )}
+      
+      {cameraActive && (
+        <div className="mt-4 text-xs text-gray-400 grid grid-cols-2 gap-2">
+          <div className="flex items-center">
+            <ScanFace size={16} className="mr-1 text-referee-yellow" />
+            <span>{translations.faceRecognition[language]}</span>
+          </div>
+          <div className="flex items-center">
+            <Shirt size={16} className="mr-1 text-referee-yellow" />
+            <span>{translations.jerseyRecognition[language]}</span>
           </div>
         </div>
       )}

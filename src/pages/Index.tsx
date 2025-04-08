@@ -7,6 +7,7 @@ import PlayerRecognition from '../components/PlayerRecognition';
 import CardControls from '../components/CardControls';
 import MatchDetails from '../components/MatchDetails';
 import IncidentHistory from '../components/IncidentHistory';
+import FeaturesOverview from '../components/FeaturesOverview';
 
 const Index = () => {
   return (
@@ -15,6 +16,8 @@ const Index = () => {
         <Header />
         
         <div className="container mx-auto py-6 px-4">
+          <FeaturesOverview />
+          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="md:col-span-2 space-y-6">
               <CameraView />
