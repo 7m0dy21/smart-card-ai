@@ -28,6 +28,9 @@ export interface CardIncident {
   imageCapture?: string;
   videoEvidence?: string;
   aiAnalysis?: string;
+  recommendedCard?: CardType;
+  ruleReference?: string;
+  decisionConfidence?: number;
 }
 
 export interface Match {
@@ -51,5 +54,10 @@ export interface Match {
       timeEfficiency: number;
       consistencyScore: number;
     }
+  };
+  varAnalysis?: {
+    isReviewing: boolean;
+    currentIncident?: CardIncident;
+    recommendedDecision?: string;
   };
 }

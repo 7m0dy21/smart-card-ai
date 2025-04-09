@@ -8,6 +8,7 @@ import CardControls from '../components/CardControls';
 import MatchDetails from '../components/MatchDetails';
 import IncidentHistory from '../components/IncidentHistory';
 import FeaturesOverview from '../components/FeaturesOverview';
+import VarScreen from '../components/VarScreen';
 
 const Index = () => {
   return (
@@ -21,6 +22,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="md:col-span-2 space-y-6">
               <CameraView />
+              <VarScreen />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <PlayerRecognition />
                 <CardControls />

@@ -161,6 +161,26 @@ const defaultContextValue: AppContextType = {
     finalReport: {
       ar: 'التقرير النهائي',
       en: 'Final Report'
+    },
+    varScreen: {
+      ar: 'شاشة الفار',
+      en: 'VAR Screen'
+    },
+    recommendedDecision: {
+      ar: 'القرار المقترح',
+      en: 'Recommended Decision'
+    },
+    incidentUnderReview: {
+      ar: 'الحالة قيد المراجعة',
+      en: 'Incident under review'
+    },
+    viewVideo: {
+      ar: 'عرض الفيديو',
+      en: 'View Video'
+    },
+    lawReference: {
+      ar: 'وفقًا للقانون',
+      en: 'According to Law'
     }
   }
 };
@@ -186,7 +206,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       cardType,
       reason,
       aiAnalysis: 'تم تحليل الحالة: مخالفة مستحقة للبطاقة وفقًا لقوانين اللعبة المادة 12',
-      videoEvidence: 'video-evidence-url'
+      videoEvidence: 'video-evidence-url',
+      recommendedCard: cardType,
+      ruleReference: 'المادة 12 - الأخطاء وسوء السلوك',
+      decisionConfidence: 0.92
     };
     
     setMatch(prevMatch => ({
