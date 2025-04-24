@@ -2,12 +2,9 @@
 import React from 'react';
 import { AppProvider } from '../context/AppContext';
 import Header from '../components/Header';
-import CameraView from '../components/CameraView';
-import CardControls from '../components/CardControls';
 import MatchDetails from '../components/MatchDetails';
 import IncidentHistory from '../components/IncidentHistory';
 import FeaturesOverview from '../components/FeaturesOverview';
-import VarScreen from '../components/VarScreen';
 import { useIsMobile } from '../hooks/use-mobile';
 
 const Index = () => {
@@ -24,9 +21,6 @@ const Index = () => {
           {isMobile ? (
             // Mobile Layout - Single column stack
             <div className="flex flex-col space-y-4">
-              <CameraView />
-              <VarScreen />
-              <CardControls />
               <MatchDetails />
               <IncidentHistory />
             </div>
@@ -34,12 +28,6 @@ const Index = () => {
             // Desktop Layout - Multi-column grid
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="md:col-span-2 space-y-6">
-                <CameraView />
-                <VarScreen />
-                <CardControls />
-              </div>
-              
-              <div className="space-y-6">
                 <MatchDetails />
                 <IncidentHistory />
               </div>
