@@ -3,7 +3,6 @@ import React from 'react';
 import { AppProvider } from '../context/AppContext';
 import Header from '../components/Header';
 import CameraView from '../components/CameraView';
-import PlayerRecognition from '../components/PlayerRecognition';
 import CardControls from '../components/CardControls';
 import MatchDetails from '../components/MatchDetails';
 import IncidentHistory from '../components/IncidentHistory';
@@ -26,7 +25,6 @@ const Index = () => {
             // Mobile Layout - Single column stack
             <div className="flex flex-col space-y-4">
               <CameraView />
-              <PlayerRecognition />
               <VarScreen />
               <CardControls />
               <MatchDetails />
@@ -38,10 +36,7 @@ const Index = () => {
               <div className="md:col-span-2 space-y-6">
                 <CameraView />
                 <VarScreen />
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <PlayerRecognition />
-                  <CardControls />
-                </div>
+                <CardControls />
               </div>
               
               <div className="space-y-6">
