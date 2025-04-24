@@ -1,14 +1,18 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { Textarea } from '@/components/ui/textarea';
 import { useAppContext } from '../context/AppContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { ScanFace, Camera, Shirt } from 'lucide-react';
 
 const CardIssuance: React.FC = () => {
   const { language, translations, cameraActive, setCameraActive } = useAppContext();
+  const [reason, setReason] = useState('');
   const navigate = useNavigate();
+  const location = useLocation();
+  const cardType = location.state?.cardType;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-referee-blue to-black text-white">
@@ -60,14 +64,40 @@ const CardIssuance: React.FC = () => {
                 {translations.scan[language] ?? 'Scan'}
               </Button>
             </div>
+
+            <div className="mt-6">
+              <label className="block text-sm font-medium mb-2">
+                {language === 'ar' ? 'سبب إشهار البطاقة' : 'Card Issuance Reason'}
+              </label>
+              <Textarea
+                value={reason}
+                onChange={(e) => setReason(e.target.value)}
+                placeholder={language === 'ar' ? 'أدخل سبب إشهار البطاقة...' : 'Enter reason for card issuance...'}
+                className="bg-black bg-opacity-30 text-white resize-none h-32 placeholder:text-gray-400"
+              />
+            </div>
           </div>
           
-          <Button 
-            className="w-full mt-6" 
-            onClick={() => navigate('/')}
-          >
-            {language === 'ar' ? 'العودة للصفحة الرئيسية' : 'Return to Home'}
-          </Button>
+          <div className="flex gap-4 mt-6">
+            <Button 
+              className="flex-1" 
+              onClick={() => navigate('/')}
+              variant="outline"
+            >
+              {language === 'ar' ? 'العودة للصفحة الرئيسية' : 'Return to Home'}
+            </Button>
+            
+            <Button 
+              className={`flex-1 ${
+                cardType === 'yellow' 
+                  ? 'bg-yellow-500 hover:bg-yellow-600 text-black' 
+                  : 'bg-red-600 hover:bg-red-700'
+              }`}
+              disabled={!reason.trim()}
+            >
+              {language === 'ar' ? 'إشهار البطاقة' : 'Issue Card'}
+            </Button>
+          </div>
         </Card>
       </div>
     </div>
