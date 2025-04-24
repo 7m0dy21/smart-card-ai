@@ -2,23 +2,27 @@
 import React from 'react';
 import { useAppContext } from '../context/AppContext';
 import { Button } from '@/components/ui/button';
+import { ScanFace } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Header: React.FC = () => {
-  const { language, setLanguage, translations } = useAppContext();
+  const { language, translations } = useAppContext();
+  const navigate = useNavigate();
 
   return (
-    <header className="bg-referee-blue text-white p-4 shadow-md">
-      <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-2xl font-bold">{translations.appTitle[language]}</h1>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
-          className="text-white border-white hover:text-referee-blue hover:bg-white"
-        >
-          {language === 'ar' ? 'English' : 'العربية'}
-        </Button>
+    <header className="bg-black bg-opacity-50 py-4 px-4 flex justify-between items-center">
+      <div className="text-white font-bold text-xl">
+        {translations.appTitle[language]}
       </div>
+      
+      <Button 
+        onClick={() => navigate('/card-issuance')} 
+        variant="outline"
+        className="flex items-center space-x-2"
+      >
+        <ScanFace size={16} />
+        <span>{language === 'ar' ? 'إشهار البطاقة' : 'Issue Card'}</span>
+      </Button>
     </header>
   );
 };

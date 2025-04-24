@@ -1,4 +1,3 @@
-
 import React, { createContext, useState, useContext } from 'react';
 import { Language, CardType, Player, Team, CardIncident, Match } from '../types';
 
@@ -181,6 +180,10 @@ const defaultContextValue: AppContextType = {
     lawReference: {
       ar: 'وفقًا للقانون',
       en: 'According to Law'
+    },
+    scan: {
+      ar: 'مسح',
+      en: 'Scan'
     }
   }
 };
